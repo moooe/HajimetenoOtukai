@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CreateScript : MonoBehaviour {
 
-	public GameObject course1;
-	public GameObject course2;
+	public GameObject Street1;
+	public GameObject Street2;
 
-	int border = 5;
+	float border = -62.5f;
 
 	void Update (){
 		if (transform.position.z > border) {
@@ -16,17 +16,16 @@ public class CreateScript : MonoBehaviour {
 	}
 
 	void CreateMap(){
-		if (course1.transform.position.z < border) {
-			border += 30;
-			Vector3 temp = new Vector3 (0,-0.49f,border);
-			course1.transform.position = temp;
-		} else if (course2.transform.position.z < border) {
-			border += 30;
-			Vector3 temp = new Vector3 (0,-0.49f,border);
-			course2.transform.position = temp;
+		if (Street1.transform.position.z < border) {
+			border += 95;
+			Vector3 temp = new Vector3 (-314.48f,70.945f,border);
+			Street1.transform.position = temp;
+		} else if (Street2.transform.position.z < border) {
+			border += 95;
+			Vector3 temp = new Vector3 (-314.48f,70.945f,border);
+			Street2.transform.position = temp;
 		}
 	}
-
 	// Use this for initialization
 	
 }

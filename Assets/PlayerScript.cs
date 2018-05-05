@@ -5,13 +5,14 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour {
 
 	public float speed = 3.0f;
-	public float slidspeed = 1.5f;
+	public float slidspeed = 3;
 
 	Animator animator;
 
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent <Animator> ();
+
 		
 	}
 	
@@ -20,12 +21,12 @@ public class PlayerScript : MonoBehaviour {
 		transform.position += Vector3.forward * speed * Time.deltaTime;
 		float pos_x = transform.position.x;
 		if (Input.GetKey (KeyCode.LeftArrow)) {
-			if (pos_x > -1.9f) {
+			if (pos_x > -322) {
 				transform.position += Vector3.left * slidspeed * Time.deltaTime;
 			}
 		}
 		if (Input.GetKey (KeyCode.RightArrow)) {
-			if (pos_x < 1.9f) {
+			if (pos_x < -314.5f) {
 				transform.position += Vector3.right * slidspeed * Time.deltaTime;
 			}
 		}

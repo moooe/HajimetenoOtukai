@@ -54,6 +54,7 @@
      <Compile Include="Assets\CreateScript.cs" />
      <Compile Include="Assets\PlayerScript.cs" />
      <None Include="Assets\FreeVoxelGirl\ReadMe.txt" />
+     <None Include="Assets\Simple city plain\Read_me.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
