@@ -11,20 +11,19 @@ public class CreateScript : MonoBehaviour {
 
 	void Update (){
 		if (transform.position.z > border) {
-			CreateMap ();
+			MoveStreet ();
 		}
 	}
 
-	void CreateMap(){
-		if (Street1.transform.position.z < border) {
+	void MoveStreet(){
+		if (Street1.transform.position.z < Street2.transform.position.z) {
+			Street1.transform.position += new Vector3(0,0,190);
 			border += 95;
-			Vector3 temp = new Vector3 (-314.48f,70.945f,border);
-			Street1.transform.position = temp;
-		} else if (Street2.transform.position.z < border) {
-			border += 95;
-			Vector3 temp = new Vector3 (-314.48f,70.945f,border);
-			Street2.transform.position = temp;
-		}
+			} 
+			else{
+				Street2.transform.position += new Vector3(0,0,190);
+				border += 95;
+				}
 	}
 	// Use this for initialization
 	

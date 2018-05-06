@@ -21,7 +21,7 @@ public class PlayerScript : MonoBehaviour {
 		transform.position += Vector3.forward * speed * Time.deltaTime;
 		float pos_x = transform.position.x;
 		if (Input.GetKey (KeyCode.LeftArrow)) {
-			if (pos_x > -322) {
+			if (pos_x > -321.8f) {
 				transform.position += Vector3.left * slidspeed * Time.deltaTime;
 			}
 		}
@@ -33,7 +33,7 @@ public class PlayerScript : MonoBehaviour {
 
 
 
-		if (Input.GetKey (KeyCode.UpArrow)) {
+		if (Input.GetKeyDown (KeyCode.UpArrow)) {
 			animator.SetBool ("JUMP", true);
 			animator.SetBool ("JUMP", true);
 		}
