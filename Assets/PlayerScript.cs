@@ -6,13 +6,13 @@ public class PlayerScript : MonoBehaviour {
 
 	public float speed = 3.0f;
 	public float slidspeed = 3;
-	public float jumpForce = 3;
-	private Rigidbody rb;
+	public float jumpHeight;
+	
     private Animator animator;
 
 	// Use this for initialization
 	void Start () {
-		rb = GetComponent<Rigidbody>();
+		
 		animator = GetComponent <Animator> ();
 
 		
@@ -38,8 +38,7 @@ public class PlayerScript : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.UpArrow) && !animator.GetBool("JUMP")){
 			animator.SetBool("JUMP", true);
 			Invoke("JumpToRun",.7f);
-			rb.AddForce(0,jumpForce , 0);
-			StartCoroutine(JumpMovement (1f,1f));
+			StartCoroutine(JumpMovement (1f,jumpHeight));
 		}
 	}
 
