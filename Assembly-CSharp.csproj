@@ -51,8 +51,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CreateScript.cs" />
-     <Compile Include="Assets\PlayerScript.cs" />
+     <Compile Include="Assets\Scripts\CreateScript.cs" />
+     <Compile Include="Assets\Scripts\PlayerScript.cs" />
+     <Compile Include="Assets\Scripts\TimeScript.cs" />
      <None Include="Assets\FreeVoxelGirl\ReadMe.txt" />
      <None Include="Assets\Simple city plain\Read_me.txt" />
      <None Include="Assets\FoodAndGrocery\Info.txt" />
