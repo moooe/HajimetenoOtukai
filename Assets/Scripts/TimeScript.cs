@@ -7,6 +7,8 @@ public class TimeScript : MonoBehaviour {
     public PlayerScript playerScript;
 	
 	public GameObject gameOverText; 
+
+	bool flag=true;
 	
 
 	// Use this for initialization
@@ -17,13 +19,15 @@ public class TimeScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//// ここから
+		
         if (playerScript.isGoal) // もしPlayerScriptのisGoalがTrueだったら
         {
-            return; // これより下は見ない
+			flag=false;
         }
-        //// ここまで追加
+        
+		if(flag){
 		time -= Time.deltaTime;
+		}
 		if (time < 0) {
 			GameOver();
 		}

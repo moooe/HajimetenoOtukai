@@ -15,11 +15,14 @@ public class PlayerScript : MonoBehaviour {
     private Animator animator;
 	private float defaultSpeed; //// 追加
     private float count = 0; //// 追加
+	private float speedUpTimer = 0; //// 追加 スピードアップの残り時間を制御
+    private float freezeTimer = 0;  //// 追加 フリーズの残り時間を制御
 
 
 	// Use this for initialization
 	void Start () {
 		
+
 		animator = GetComponent <Animator> ();
 		defaultSpeed = speed; //// 追加
 		goalText.enabled = false; // テキストを非表示にしておく
@@ -73,38 +76,75 @@ public class PlayerScript : MonoBehaviour {
 	public void Stop() {
         speed = 0;
     }
-	//// ここから
+	
     public void SpeedUp()
     {
         
         // スピードを1.5倍にアップ
-        speed *= 1.4f;
+        speed *= 1.2f;
         // 3秒後にスピードをもとに戻す
-        Invoke("DefaultSpeed", 3f);
+        StartCoroutine(DefaultSpeed(2));
     }
 
-    private void DefaultSpeed()
+    
+    private IEnumerator DefaultSpeed(float time)
     {
-        // スピードを元に戻す
-        speed =　defaultSpeed;
+        // もしspeedUpTimerが0より大きければ，SpeedUp中ということで，
+        // タイマーを初期化してからコルーチンを抜ける
+        // 時間だけ伸ばすイメージ
+        if (speedUpTimer <= 0)
+        {
+            speedUpTimer = time;
+            yield break;
+        }
+
+        speedUpTimer = time;
+
+        while (speedUpTimer > 0)
+        {
+            speedUpTimer -= Time.deltaTime;
+            yield return null; // 1frame待つ
+        }
+        speed = defaultSpeed;
     }
-    //// ここまで追加
-	//// ここから
+
+
     private void Freeze()
     {
         // Freezeさせる
         speed = 0;
-        // 1秒後にスピードをもとに戻す
-        Invoke("DefaultSpeed", 1f);
+        // n秒後にスピードをもとに戻す
+        StartCoroutine(UnFreeze(1));
     }
+
+    private IEnumerator UnFreeze(float time)
+    {
+        freezeTimer = time;
+
+        // もしfreezeTimerが0より大きければ，freeze中ということで，
+        // タイマーを初期化してからコルーチンを抜ける
+        // 時間だけ伸ばすイメージ
+        if (freezeTimer <= 0)
+        {
+            freezeTimer = time;
+            yield break;
+        }
+
+        while (freezeTimer > 0)
+        {
+            freezeTimer -= Time.deltaTime;
+            yield return null; // 1frame待つ
+        }
+        speed = defaultSpeed;
+    }
+   
 
     private void CountUp(int count)
     {
         this.count += count;
 		scoreText.text = "SCORE:" + this.count; 
     }
-    //// ここまで追加
-	 //// ここから
+    
 	
 	private void Goal()
 	{
@@ -125,7 +165,8 @@ public class PlayerScript : MonoBehaviour {
 		{
 			// ゴールの位置にゴールテープてきな感じで
             // ColliderがアタッチされているGoalタグのゴールを用意しておく
-			Goal();
+			isGoal = true;
+            Goal();
 		}
 		else if (other.gameObject.CompareTag("Stone"))
         {
@@ -142,6 +183,6 @@ public class PlayerScript : MonoBehaviour {
             // 野菜を消す
             Destroy(other.gameObject);
         }
-        //// ここまで追加
+        
     }
 }

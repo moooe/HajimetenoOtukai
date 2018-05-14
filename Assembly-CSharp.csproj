@@ -53,8 +53,11 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CreateScript.cs" />
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
+     <Compile Include="Assets\Scripts\StartClickScript.cs" />
      <Compile Include="Assets\Scripts\TimeScript.cs" />
+     <Compile Include="Assets\Scripts\TitleScript.cs" />
      <None Include="Assets\FreeVoxelGirl\ReadMe.txt" />
+     <None Include="Assets\japanesefont\readme.txt" />
      <None Include="Assets\Simple city plain\Read_me.txt" />
      <None Include="Assets\FoodAndGrocery\Info.txt" />
  <Reference Include="UnityEngine.UI">
