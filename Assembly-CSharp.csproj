@@ -53,6 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CreateScript.cs" />
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
+     <Compile Include="Assets\Scripts\RetryScript.cs" />
      <Compile Include="Assets\Scripts\StartClickScript.cs" />
      <Compile Include="Assets\Scripts\TimeScript.cs" />
      <Compile Include="Assets\Scripts\TitleScript.cs" />

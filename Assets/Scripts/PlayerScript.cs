@@ -11,6 +11,9 @@ public class PlayerScript : MonoBehaviour {
 	public float jumpHeight;
 	public Text goalText;
 	public Text scoreText; 
+    public GameObject canvas2;
+
+    RetryScript retryscript;    
 	
     private Animator animator;
 	private float defaultSpeed; //// 追加
@@ -26,6 +29,9 @@ public class PlayerScript : MonoBehaviour {
 		animator = GetComponent <Animator> ();
 		defaultSpeed = speed; //// 追加
 		goalText.enabled = false; // テキストを非表示にしておく
+        animator.SetBool("RUN",true);
+        canvas2.SetActive(false);
+
 		
 	}
 	
@@ -51,6 +57,7 @@ public class PlayerScript : MonoBehaviour {
 			Invoke("JumpToRun",.7f);
 			StartCoroutine(JumpMovement (1f,jumpHeight));
 		}
+        
 	}
 
 	private void JumpToRun(){
@@ -75,6 +82,15 @@ public class PlayerScript : MonoBehaviour {
 	} 
 	public void Stop() {
         speed = 0;
+        animator.SetBool("JUMP",false);
+		animator.SetBool("RUN",false);
+        animator.SetBool("IDLE",true);
+    }
+    public void Stop2(){
+        speed = 0;
+        animator.SetBool("JUMP",false);
+        animator.SetBool("RUN",false);
+        animator.SetBool("LOSE",true);
     }
 	
     public void SpeedUp()
@@ -83,7 +99,7 @@ public class PlayerScript : MonoBehaviour {
         // スピードを1.5倍にアップ
         speed *= 1.2f;
         // 3秒後にスピードをもとに戻す
-        StartCoroutine(DefaultSpeed(2));
+        StartCoroutine(DefaultSpeed(3));
     }
 
     
@@ -149,7 +165,9 @@ public class PlayerScript : MonoBehaviour {
 	private void Goal()
 	{
 		goalText.enabled = true;
+        canvas2.SetActive(true);
 		Invoke("Stop", 1); // 適当に、1秒後くらいに止めとく	
+        retryscript.Retry();
 	}
     void OnCollisionEnter(Collision other)
     {

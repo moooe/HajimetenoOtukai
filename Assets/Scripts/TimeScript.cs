@@ -3,10 +3,12 @@ using UnityEngine.UI;
 using UnityEngine;
 
 public class TimeScript : MonoBehaviour {
-	private float time = 60;
+	private float time = 50;
     public PlayerScript playerScript;
 	
 	public GameObject gameOverText; 
+	RetryScript retryscript;
+	public GameObject canvas2;
 
 	bool flag=true;
 	
@@ -14,6 +16,7 @@ public class TimeScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		gameOverText.SetActive(false);
+		canvas2.SetActive(false);
 		GetComponent<Text>().text = "TIME : " + ((int)time).ToString();
 	}
 	
@@ -30,12 +33,14 @@ public class TimeScript : MonoBehaviour {
 		}
 		if (time < 0) {
 			GameOver();
+			retryscript.Retry();
 		}
 		if (time < 0) time = 0;
 		GetComponent<Text>().text = "TIME : " + ((int)time).ToString ();
 	}
 	void GameOver () {
+		canvas2.SetActive(true);
 		gameOverText.SetActive(true);
-		playerScript.Stop();
+		playerScript.Stop2();
 	}
 }
