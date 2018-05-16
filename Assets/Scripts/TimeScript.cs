@@ -7,7 +7,7 @@ public class TimeScript : MonoBehaviour {
     public PlayerScript playerScript;
 	
 	public GameObject gameOverText; 
-	RetryScript retryscript;
+	
 	public GameObject canvas2;
 
 	bool flag=true;
@@ -33,7 +33,6 @@ public class TimeScript : MonoBehaviour {
 		}
 		if (time < 0) {
 			GameOver();
-			retryscript.Retry();
 		}
 		if (time < 0) time = 0;
 		GetComponent<Text>().text = "TIME : " + ((int)time).ToString ();

@@ -17,7 +17,7 @@ public class PlayerScript : MonoBehaviour {
 	
     private Animator animator;
 	private float defaultSpeed; //// 追加
-    private float count = 0; //// 追加
+    
 	private float speedUpTimer = 0; //// 追加 スピードアップの残り時間を制御
     private float freezeTimer = 0;  //// 追加 フリーズの残り時間を制御
     int score = 0;
@@ -153,8 +153,8 @@ public class PlayerScript : MonoBehaviour {
 
     private void CountUp(int count)
     {
-        this.count += count;
-		scoreText.text = "SCORE:" + this.count; 
+        score += count;
+		scoreText.text = "SCORE:" + score; 
     }
     
 	
@@ -162,10 +162,9 @@ public class PlayerScript : MonoBehaviour {
 	{
 		goalText.enabled = true;
         canvas2.SetActive(true);
-		Invoke("Stop",1); // 1秒後に止める	
-        retryscript.Retry();
+		Stop();	
         //ランキング表示
-        naichilab.RankingLoader.Instance.SendScoreAndShowRanking (100);
+        naichilab.RankingLoader.Instance.SendScoreAndShowRanking (score);
 
 	}
     void OnCollisionEnter(Collision other)
