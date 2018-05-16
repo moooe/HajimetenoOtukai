@@ -20,19 +20,16 @@ public class PlayerScript : MonoBehaviour {
     private float count = 0; //// 追加
 	private float speedUpTimer = 0; //// 追加 スピードアップの残り時間を制御
     private float freezeTimer = 0;  //// 追加 フリーズの残り時間を制御
+    int score = 0;
 
 
 	// Use this for initialization
 	void Start () {
-		
-
 		animator = GetComponent <Animator> ();
 		defaultSpeed = speed; //// 追加
 		goalText.enabled = false; // テキストを非表示にしておく
         animator.SetBool("RUN",true);
         canvas2.SetActive(false);
-
-		
 	}
 	
 	// Update is called once per frame
@@ -57,7 +54,6 @@ public class PlayerScript : MonoBehaviour {
 			Invoke("JumpToRun",.7f);
 			StartCoroutine(JumpMovement (1f,jumpHeight));
 		}
-        
 	}
 
 	private void JumpToRun(){
@@ -166,8 +162,11 @@ public class PlayerScript : MonoBehaviour {
 	{
 		goalText.enabled = true;
         canvas2.SetActive(true);
-		Invoke("Stop", 1); // 適当に、1秒後くらいに止めとく	
+		Invoke("Stop",1); // 1秒後に止める	
         retryscript.Retry();
+        //ランキング表示
+        naichilab.RankingLoader.Instance.SendScoreAndShowRanking (100);
+
 	}
     void OnCollisionEnter(Collision other)
     {
