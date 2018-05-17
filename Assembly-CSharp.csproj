@@ -105,6 +105,7 @@
      <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Script\RenderEffect.cs" />
      <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Script\TransformExtension.cs" />
      <Compile Include="Assets\Scripts\CreateScript.cs" />
+     <Compile Include="Assets\Scripts\ItemCreateScript.cs" />
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
      <Compile Include="Assets\Scripts\RetryScript.cs" />
      <Compile Include="Assets\Scripts\StartClickScript.cs" />
