@@ -13,8 +13,6 @@ public class PlayerScript : MonoBehaviour {
 	public Text scoreText; 
     public GameObject canvas2;
 
-    RetryScript retryscript;    
-	
     private Animator animator;
 	private float defaultSpeed; //// 追加
     
