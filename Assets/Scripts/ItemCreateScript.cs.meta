@@ -5,7 +5,19 @@ licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Apple: {fileID: 1541727666533908, guid: cee6d231373c342469bcbdb0c4716837, type: 2}
+  - banana: {fileID: 1258909306805260, guid: 3ca46ebb558dd8f4082bb83a0a63b495, type: 2}
+  - Bottle: {fileID: 1994068386674628, guid: 962b93b60955c3544a7ec90690e5e9d2, type: 2}
+  - Can: {fileID: 1927102701500840, guid: 95437ccd2dccc4949a760550a0dd1d40, type: 2}
+  - Can_Orange: {fileID: 1910423149220962, guid: 7cbd34f2f56a2ac439d37ffe168c15f6,
+      type: 2}
+  - Chips: {fileID: 1369184672327490, guid: 1524aa8b2ab014c458a19b4dd7a2791d, type: 2}
+  - Milk: {fileID: 1844566484449392, guid: e47f737b9f0cd964b88c8533f934e7cd, type: 2}
+  - Onion: {fileID: 1335151266775502, guid: 7b2cc13ef12f72a4e89ae1bc32c0c95d, type: 2}
+  - Tomato: {fileID: 1685450993149202, guid: a77239f735f87474a93def2da13bdea6, type: 2}
+  - candy: {fileID: 1231060664688244, guid: bd16cbc90d8a566458f76f6cc3283770, type: 2}
+  - Rock: {fileID: 1048660416418228, guid: 7bb0e0c79e8d9784b9b1c248a3642928, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

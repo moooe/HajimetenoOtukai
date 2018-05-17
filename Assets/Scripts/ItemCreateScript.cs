@@ -18,63 +18,64 @@ public class ItemCreateScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		float x = Random.Range(-5.7f,1.5f);
-		float z = Random.Range(-77.0f,204.0f);
+		float x = Random.Range(-321.8f,-314.6f);
+		float y = 70.18f;
+		float z = Random.Range(-108.0f,173.8f);
 		
-		for(int i = 1;i <= 5;i++){
-			x = Random.Range(-5.7f,1.5f);
-		    z = Random.Range(-77.0f,204.0f);
-		    Instantiate (Apple, new Vector3(x,-28.4f,z),Quaternion.identity);
+		for(int i = 1;i <= 7;i++){
+			x = Random.Range(-321.8f,-314.6f);
+		    z = Random.Range(-108.0f,173.8f);
+		    Instantiate (Apple, new Vector3(x,y,z),Quaternion.identity);
 		}
-		for(int i = 1;i <= 5;i++){
-			x = Random.Range(-5.7f,1.5f);
-		    z = Random.Range(-77.0f,204.0f);
-		    Instantiate (banana, new Vector3(x,-28.1f,z),Quaternion.identity);
+		for(int i = 1;i <= 7;i++){
+			x = Random.Range(-321.8f,-314.6f);
+		    z = Random.Range(-108.0f,173.8f);
+		    Instantiate (banana, new Vector3(x,70.13f,z),Quaternion.identity);
 		}
-		for(int i = 1;i <= 5;i++){
-			x = Random.Range(-5.7f,1.5f);
-		    z = Random.Range(-77.0f,204.0f);
-		    Instantiate (Bottle, new Vector3(x,-28.4f,z),Quaternion.identity);
+		for(int i = 1;i <= 7;i++){
+			x = Random.Range(-321.8f,-314.6f);
+		    z = Random.Range(-108.0f,173.8f);
+		    Instantiate (Bottle, new Vector3(x,y,z),Quaternion.identity);
 		}
-		for(int i = 1;i <= 5;i++){
-			x = Random.Range(-5.7f,1.5f);
-		    z = Random.Range(-77.0f,204.0f);
-		    Instantiate (Can, new Vector3(x,-28.4f,z),Quaternion.identity);
+		for(int i = 1;i <= 7;i++){
+			x = Random.Range(-321.8f,-314.6f);
+		    z = Random.Range(-108.0f,173.8f);
+		    Instantiate (Can, new Vector3(x,y,z),Quaternion.identity);
 		}
-		for(int i = 1;i <= 5;i++){
-			x = Random.Range(-5.7f,1.5f);
-		    z = Random.Range(-77.0f,204.0f);
-		    Instantiate (Can_Orange, new Vector3(x,-28.4f,z),Quaternion.identity);
+		for(int i = 1;i <= 7;i++){
+			x = Random.Range(-321.8f,-314.6f);
+		    z = Random.Range(-108.0f,173.8f);
+		    Instantiate (Can_Orange, new Vector3(x,y,z),Quaternion.identity);
 		}
-		for(int i = 1;i <= 5;i++){
-			x = Random.Range(-5.7f,1.5f);
-		    z = Random.Range(-77.0f,204.0f);
-		    Instantiate (Chips, new Vector3(x,-28.4f,z),Quaternion.identity);
+		for(int i = 1;i <= 7;i++){
+			x = Random.Range(-321.8f,-314.6f);
+		    z = Random.Range(-108.0f,173.8f);
+		    Instantiate (Chips, new Vector3(x,y,z),Quaternion.identity);
 		}
-		for(int i = 1;i <= 5;i++){
-			x = Random.Range(-5.7f,1.5f);
-		    z = Random.Range(-77.0f,204.0f);
-		    Instantiate (Milk, new Vector3(x,-28.4f,z),Quaternion.identity);
+		for(int i = 1;i <= 7;i++){
+			x = Random.Range(-321.8f,-314.6f);
+		    z = Random.Range(-108.0f,173.8f);
+		    Instantiate (Milk, new Vector3(x,y,z),Quaternion.identity);
 		}
-		for(int i = 1;i <= 5;i++){
-			x = Random.Range(-5.7f,1.5f);
-		    z = Random.Range(-77.0f,204.0f);
-		    Instantiate (Onion, new Vector3(x,-28.4f,z),Quaternion.identity);
+		for(int i = 1;i <= 7;i++){
+			x = Random.Range(-321.8f,-314.6f);
+		    z = Random.Range(-108.0f,173.8f);
+		    Instantiate (Onion, new Vector3(x,y,z),Quaternion.identity);
 		}
-		for(int i = 1;i <= 5;i++){
-			x = Random.Range(-5.7f,1.5f);
-		    z = Random.Range(-77.0f,204.0f);
-		    Instantiate (Tomato, new Vector3(x,-28.4f,z),Quaternion.identity);
+		for(int i = 1;i <= 7;i++){
+			x = Random.Range(-321.8f,-314.6f);
+		    z = Random.Range(-108.0f,173.8f);
+		    Instantiate (Tomato, new Vector3(x,y,z),Quaternion.identity);
 		}
-		for(int i = 1;i <= 5;i++){
-			x = Random.Range(-5.7f,1.5f);
-		    z = Random.Range(-77.0f,204.0f);
-		    Instantiate (candy, new Vector3(x,-27.8f,z),Quaternion.identity);
+		for(int i = 1;i <= 35;i++){
+			x = Random.Range(-321.8f,-314.6f);
+		    z = Random.Range(-108.0f,173.8f);
+		    Instantiate (candy, new Vector3(x,70.78f,z),Quaternion.identity);
 		}
-		for(int i = 1;i <= 5;i++){
-			x = Random.Range(-5.7f,1.5f);
-		    z = Random.Range(-77.0f,204.0f);
-		    Instantiate (Rock, new Vector3(x,-28.0f,z),Quaternion.identity);
+		for(int i = 1;i <= 50;i++){
+			x = Random.Range(-321.8f,-314.6f);
+		    z = Random.Range(-108.0f,173.8f);
+		    Instantiate (Rock, new Vector3(x,70.58f,z),Quaternion.identity);
 		}
     }
 	
