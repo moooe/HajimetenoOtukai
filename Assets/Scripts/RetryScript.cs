@@ -19,6 +19,8 @@ public class RetryScript : MonoBehaviour {
 		
 	}
 	public void toGameScene(){
+		if(Input.GetKey (KeyCode.Space)){
 		SceneManager.LoadScene("Main");
+		}
 	}
 }

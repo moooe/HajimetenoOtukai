@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour {
-	 public bool isGoal = false;
+	public bool isGoal = false;
+    private bool isJump;
+    bool flag = false;
 
 	public float speed = 2.0f;
 	public float slidspeed = 3;
 	public float jumpHeight;
 	public Text goalText;
 	public Text scoreText; 
-    public GameObject canvas2;
+    public GameObject retryText;
 
     private Animator animator;
 	private float defaultSpeed; //// 追加
@@ -26,8 +29,8 @@ public class PlayerScript : MonoBehaviour {
 		animator = GetComponent <Animator> ();
 		defaultSpeed = speed; //// 追加
 		goalText.enabled = false; // テキストを非表示にしておく
+        retryText.SetActive(false);
         animator.SetBool("RUN",true);
-        canvas2.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -44,14 +47,14 @@ public class PlayerScript : MonoBehaviour {
 				transform.position += Vector3.right * slidspeed * Time.deltaTime;
 			}
 		}
-
-
-
-		if (Input.GetKeyDown(KeyCode.UpArrow) && !animator.GetBool("JUMP")){
+        if (Input.GetKeyDown(KeyCode.UpArrow) && !animator.GetBool("JUMP")){
 			animator.SetBool("JUMP", true);
 			Invoke("JumpToRun",.7f);
 			StartCoroutine(JumpMovement (1f,jumpHeight));
 		}
+        if(flag && Input.GetKey (KeyCode.Space)){ 
+            SceneManager.LoadScene("Main");
+        }
 	}
 
 	private void JumpToRun(){
@@ -60,6 +63,11 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	private IEnumerator JumpMovement(float time, float jumpHeight){
+        if (isJump)
+    {
+        yield break;
+    }
+        isJump = true;
 		float startHeight = transform.transform.position.y;
 		float starttime = Time.time;
 		float elapsedTime = Time.time - starttime;
@@ -73,6 +81,7 @@ public class PlayerScript : MonoBehaviour {
 			while (elapsedTime <= time);
 			pos = transform.position;
 			transform.position = new Vector3(pos.x, startHeight, pos.z);
+            isJump = false;
 	} 
 	public void Stop() {
         speed = 0;
@@ -158,13 +167,16 @@ public class PlayerScript : MonoBehaviour {
 	
 	private void Goal()
 	{
-		goalText.enabled = true;
-        canvas2.SetActive(true);
+		flag = true;
+        goalText.enabled = true;
+        retryText.SetActive(true);
+        if(flag && Input.GetKey (KeyCode.Space)){
+		SceneManager.LoadScene("Main");
+        }
 		Stop();	
         //ランキング表示
         naichilab.RankingLoader.Instance.SendScoreAndShowRanking (score);
-
-	}
+　　}
     void OnCollisionEnter(Collision other)
     {
 		print(other.gameObject.tag);
